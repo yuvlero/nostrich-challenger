@@ -1,0 +1,25 @@
+{
+  "name": "nostrich-challenger",
+  "version": "1.0.0",
+  "description": "Nostr authentication middleware.",
+  "author": "yuvlero",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuvlero/nostr-challenger.git"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "qrcode": "^1.5.1",
+    "nanoid": "^4.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/qrcode": "^1.5.0",
+    "@types/node": "^18.0.0"
+  }
+}
