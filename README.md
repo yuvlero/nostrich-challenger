@@ -36,9 +36,9 @@ const challenge = await generator.generateChallenge({
 ### NostrChallengeGenerator
 
 #### Methods:
-- `generateChallenge()`: Generates a challenge using the default or configured authentication server.
-- `generateChallengeWithQR()`: Generates a challenge and returns a QR code data URL.
-- `listenForAuth(challengeId)`: Listens for authentication success over WebSocket.
+- `generateChallenge()`: Calls the auth server to return challenge data.
+- `generateChallengeWithQR()`: Generates a challenge and includes a QR code data URL.
+- `listenForAuth(challengeId)`: Connects to WebSocket, subscribes to updates, and waits for the `login_success` message to trigger authentication success.
 
 ## Error Handling
 
