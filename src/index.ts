@@ -24,9 +24,13 @@ class NostrChallengeGenerator {
   }
 
   async generateChallenge(): Promise<ChallengeData> {
+    const platformDomain = process.env.PLATFORM_DOMAIN || 'unknown';  // Use environment variable or fallback
+
     try {
       const response = await fetch(`${this.authServer}/api/generate-challenge`, {
         method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ platformDomain }) // Pass domain to server
       });
 
       if (!response.ok) {
@@ -50,6 +54,7 @@ class NostrChallengeGenerator {
     }
     return challengeData;
   }
+
 
   async listenForAuth(challengeId: string): Promise<AuthResult> {
     return new Promise((resolve, reject) => {

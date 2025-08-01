@@ -10,10 +10,17 @@ npm install nostrich-challenger
 
 ## Usage
 
+### Environment Variables
+
+- Set `PLATFORM_DOMAIN` to specify the domain name for platform identification. Defaults to 'unknown' if not set.
+
 #### Basic Usage
 
 ```typescript
 import { NostrChallengeGenerator } from 'nostrich-challenger';
+
+// Ensure environment variable PLATFORM_DOMAIN is set
+process.env.PLATFORM_DOMAIN = 'yourdomain.com';
 
 const generator = new NostrChallengeGenerator();
 
@@ -36,9 +43,9 @@ const challenge = await generator.generateChallenge({
 ### NostrChallengeGenerator
 
 #### Methods:
-- `generateChallenge()`: Calls the auth server to return challenge data.
+- `generateChallenge()`: Calls the auth server to return challenge data, now including the platform domain if set.
 - `generateChallengeWithQR()`: Generates a challenge and includes a QR code data URL.
-- `listenForAuth(challengeId)`: Connects to WebSocket, subscribes to updates, and waits for the `login_success` message to trigger authentication success.
+- `listenForAuth(challengeId)`: Connects to WebSocket, subscribes to updates, and awaits a `login_success` message to trigger authentication success.
 
 ## Error Handling
 
